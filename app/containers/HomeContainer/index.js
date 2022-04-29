@@ -187,9 +187,9 @@ const mapStateToProps = createStructuredSelector({
   reposError: selectReposError(),
   repoName: selectRepoName()
 });
-
 export function mapDispatchToProps(dispatch) {
   const { requestGetGithubRepos, clearGithubRepos } = homeContainerCreators;
+
   return {
     dispatchGithubRepos: (repoName) => dispatch(requestGetGithubRepos(repoName)),
     dispatchClearGithubRepos: () => dispatch(clearGithubRepos())

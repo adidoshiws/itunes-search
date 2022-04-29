@@ -13,6 +13,9 @@ export const generateApiClient = (type = 'github') => {
     case 'github':
       apiClients[type] = createApiClientWithTransForm(process.env.GITHUB_URL);
       return apiClients[type];
+    case 'itunes':
+      apiClients[type] = createApiClientWithTransForm(process.env.ITUNES_URL);
+      return apiClients[type];
     default:
       apiClients.default = createApiClientWithTransForm(process.env.GITHUB_URL);
       return apiClients.default;
