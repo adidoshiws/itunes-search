@@ -52,6 +52,7 @@ export function ItunesContainer({ dispatchItuneTracks, dispatchClearItuneTracks,
     <>
       <input
         type="text"
+        data-testid="search-bar"
         placeholder="search tracks"
         defaultValue={trackName}
         onChange={(evt) => debouncedHandleOnChange(evt.target.value)}

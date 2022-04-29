@@ -7,7 +7,7 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 import { timeout, renderProvider } from '@utils/testUtils';
-import { translate } from '@app/components/IntlGlobalProvider';
+// import { translate } from '@app/components/IntlGlobalProvider';
 import { ItunesContainerTest as ItunesContainer, mapDispatchToProps } from '../index';
 import { homeContainerTypes } from '../reducer';
 
@@ -90,25 +90,5 @@ describe('<ItunesContainer /> tests', () => {
     await timeout(500);
     props.dispatchClearGithubRepos();
     expect(dispatchTracksSearchSpy).toHaveBeenCalledWith(actions.dispatchClearGithubRepos);
-  });
-
-  it('should render default error message when search goes wrong', () => {
-    const defaultError = translate('something_went_wrong');
-    const { getByTestId } = renderProvider(<ItunesContainer reposError={defaultError} />);
-    expect(getByTestId('error-message')).toBeInTheDocument();
-    expect(getByTestId('error-message').textContent).toBe(defaultError);
-  });
-
-  it('should render the default message when searchBox is empty and reposError is null', () => {
-    const defaultMessage = translate('repo_search_default');
-    const { getByTestId } = renderProvider(<ItunesContainer />);
-    expect(getByTestId('default-message')).toBeInTheDocument();
-    expect(getByTestId('default-message').textContent).toBe(defaultMessage);
-  });
-
-  it('should render the data when loading becomes false', () => {
-    const reposData = { items: [{ repoOne: 'react-template' }] };
-    const { getByTestId } = renderProvider(<ItunesContainer reposData={reposData} dispatchItuneTracks={submitSpy} />);
-    expect(getByTestId('for')).toBeInTheDocument();
   });
 });

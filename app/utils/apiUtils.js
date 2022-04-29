@@ -5,6 +5,7 @@ import { mapKeysDeep } from './index';
 
 const apiClients = {
   github: null,
+  itunes: null,
   default: null
 };
 export const getApiClient = (type = 'github') => apiClients[type];
