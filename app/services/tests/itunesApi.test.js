@@ -2,7 +2,7 @@ import MockAdapter from 'axios-mock-adapter';
 import { getApiClient } from '@utils/apiUtils';
 import { getTracks } from '../itunesApi';
 
-describe('RepoApi tests', () => {
+describe('ItuneApi tests', () => {
   const songName = 'rockstar';
   it('should make the api call to "/search?term="', async () => {
     const mock = new MockAdapter(getApiClient().axiosInstance);

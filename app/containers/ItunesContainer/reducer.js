@@ -18,8 +18,8 @@ export const itunesContainerReducer = (state = initialState, action) =>
         break;
       case itunesContainerTypes.CLEAR_ITUNE_TRACKS:
         draft.trackName = null;
-        draft.tracksData = null;
-        draft.tracksError = {};
+        draft.tracksError = null;
+        draft.tracksData = {};
         break;
       case itunesContainerTypes.SUCCESS_GET_ITUNE_TRACKS:
         draft.tracksData = action.data;
