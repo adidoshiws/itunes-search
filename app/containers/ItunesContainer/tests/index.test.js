@@ -7,9 +7,7 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 import { timeout, renderProvider } from '@utils/testUtils';
-// import { translate } from '@app/components/IntlGlobalProvider';
 import { ItunesContainerTest as ItunesContainer } from '../index';
-// import { homeContainerTypes } from '../reducer';
 
 describe('<ItunesContainer /> tests', () => {
   let submitSpy;
@@ -57,15 +55,6 @@ describe('<ItunesContainer /> tests', () => {
     });
     expect(submitSpy).toBeCalledWith(trackName);
   });
-
-  // it('should call dispatchItuneTracks on submit', async () => {
-  //   const trackName = 'rockstar';
-  //   const { getByTestId } = renderProvider(<ItunesContainer dispatchItuneTracks={submitSpy} />);
-  //   fireEvent.keyDown(getByTestId('search-bar'), { keyCode: 13, target: { value: trackName } });
-
-  //   await timeout(500);
-  //   expect(submitSpy).toBeCalledWith(trackName);
-  // });
 
   it('should  dispatchItuneTracks on update on mount if trackName is already persisted', async () => {
     const trackName = 'rockstar';
