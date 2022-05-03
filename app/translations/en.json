@@ -13,5 +13,16 @@
   "repo_full_name_unavailable": "Repository full name unavaiable",
   "repository_stars": "Repository stars: {stars}",
   "repo_stars_unavailable": "Repository stars are unavaiable",
-  "wednesday_solutions": "Wednesday Solutions"
+  "wednesday_solutions": "Wednesday Solutions",
+  "track_list": "Track List",
+  "track_search": "Track Search",
+  "track_search_default": "Search for a track by entering it's name in the search box",
+  "get_track_details": "Get details of tracks",
+  "matching_tracks": "Total number of matching tracks: {resultCount}",
+  "track_name": "Track Name: {name}",
+  "track_name_unavailable": "Track name is unavailable",
+  "track_collection_name": "Track collection name: {collectionName}",
+  "track_collection_name_unavailable": "Track collection name unavaiable",
+  "track_preview": "Track preview: {preview}",
+  "track_preview_unavailable": "Track preview is unavaiable"
 }
