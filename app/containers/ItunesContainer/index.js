@@ -75,14 +75,14 @@ export function ItunesContainer({
   const debouncedHandleOnChange = debounce(handleOnChange, 200);
 
   const renderTrackList = () => {
-    const items = get(tracksData, 'items', []);
+    const results = get(tracksData, 'results', []);
     const resultCount = get(tracksData, 'resultCount', 0);
     return (
-      <If condition={!isEmpty(items) || loading}>
+      <If condition={!isEmpty(results) || loading}>
         <Skeleton loading={loading} active>
           <If condition={!isEmpty(trackName)}>
             <div>
-              <T id="search_query" values={{ trackName }} />
+              <T id="search_query_text" values={{ trackName }} />
             </div>
           </If>
           <If condition={resultCount !== 0}>
@@ -91,7 +91,7 @@ export function ItunesContainer({
             </div>
           </If>
           <For
-            of={items}
+            of={results}
             ParentComponent={Container}
             renderItem={(item) => <TrackCard key={item.trackId} {...item} />}
           />
@@ -121,7 +121,7 @@ export function ItunesContainer({
 
   return (
     <>
-      <Container>
+      <Container maxwidth={maxwidth} padding={padding}>
         <CustomCard title={intl.formatMessage({ id: 'track_search' })} maxwidth={maxwidth}>
           <T marginBottom={10} id="get_track_details" />
           <Search

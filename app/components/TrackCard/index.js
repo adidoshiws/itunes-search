@@ -22,7 +22,7 @@ export function TrackCard({ trackName, collectionName, previewUrl }) {
   return (
     <CustomCard data-testid="track-card">
       <If condition={!isEmpty(trackName)} otherwise={<T data-testid="name-unavailable" id="track_name_unavailable" />}>
-        <T data-testid="name" id="track_name" values={{ trackName: trackName }} />
+        <T data-testid="trackName" id="track_name" values={{ trackName: trackName }} />
       </If>
       <If
         condition={!isEmpty(collectionName)}
@@ -31,7 +31,7 @@ export function TrackCard({ trackName, collectionName, previewUrl }) {
         <T data-testid="collectionName" id="track_collection_name" values={{ collectionName: collectionName }} />
       </If>
       <If condition={previewUrl} otherwise={<T data-testid="preview-unavailable" id="track_preview_unavailable" />}>
-        <T data-testid="preview" id="track_preview" values={{ preview: previewUrl }} />
+        <audio src={previewUrl} controls></audio>
       </If>
     </CustomCard>
   );
