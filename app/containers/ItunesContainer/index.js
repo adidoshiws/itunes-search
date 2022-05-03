@@ -38,6 +38,10 @@ export function ItunesContainer({ dispatchItuneTracks, dispatchClearItuneTracks,
     }
   };
 
+  useEffect(() => {
+    handleOnChange();
+  }, []);
+
   const debouncedHandleOnChange = debounce(handleOnChange, 200);
 
   const renderErrorState = () => {
