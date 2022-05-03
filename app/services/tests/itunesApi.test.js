@@ -5,7 +5,7 @@ import { getTracks } from '../itunesApi';
 describe('ItuneApi tests', () => {
   const songName = 'rockstar';
   it('should make the api call to "/search?term="', async () => {
-    const mock = new MockAdapter(getApiClient().axiosInstance);
+    const mock = new MockAdapter(getApiClient('itunes').axiosInstance);
     const data = [
       {
         resultCount: 1,
