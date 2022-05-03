@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TrackCard /> should render and match the snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="ant-card ant-card-bordered TrackCard__CustomCard-sc-10bk196-0 bcUGih"
+      data-testid="track-card"
+    >
+      <div
+        class="ant-card-body"
+      >
+        <p
+          class="T__StyledText-gjlic1-0 kYcyRq"
+          data-testid="name-unavailable"
+        >
+          Track name is unavailable
+        </p>
+        <p
+          class="T__StyledText-gjlic1-0 kYcyRq"
+          data-testid="collectionName-unavailable"
+        >
+          Track collection name unavaiable
+        </p>
+        <p
+          class="T__StyledText-gjlic1-0 kYcyRq"
+          data-testid="preview-unavailable"
+        >
+          Track preview is unavaiable
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+`;

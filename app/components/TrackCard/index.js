@@ -31,7 +31,7 @@ export function TrackCard({ trackName, collectionName, previewUrl }) {
         <T data-testid="collectionName" id="track_collection_name" values={{ collectionName: collectionName }} />
       </If>
       <If condition={previewUrl} otherwise={<T data-testid="preview-unavailable" id="track_preview_unavailable" />}>
-        <audio src={previewUrl} controls></audio>
+        <audio data-testid="preview" id="track_preview" src={previewUrl} controls></audio>
       </If>
     </CustomCard>
   );
