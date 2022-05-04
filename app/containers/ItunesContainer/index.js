@@ -10,7 +10,7 @@ import saga from './saga';
 import T from '@components/T';
 import If from '@components/If';
 import For from '@app/components/For';
-import { Input, Skeleton, Card } from 'antd';
+import { Input, Skeleton, Card, Row } from 'antd';
 import { injectIntl } from 'react-intl';
 import { selectTrackName, selectTracksData, selectTracksError } from './selectors';
 import { injectSaga } from 'redux-injectors';
@@ -34,6 +34,17 @@ const Container = styled.div`
     width: 100%;
     margin: 0 auto;
     padding: ${(props) => props.padding}px;
+  }
+`;
+
+const Grid = styled(Row)`
+  && {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: inherit;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 95%;
   }
 `;
 
@@ -90,11 +101,13 @@ export function ItunesContainer({
               <T id="matching_tracks" values={{ resultCount }} />
             </div>
           </If>
-          <For
-            of={results}
-            ParentComponent={Container}
-            renderItem={(item) => <TrackCard key={item.trackId} {...item} />}
-          />
+          <Grid>
+            <For
+              of={results}
+              ParentComponent={Grid}
+              renderItem={(item) => <TrackCard key={item.trackId} {...item} />}
+            />
+          </Grid>
         </Skeleton>
       </If>
     );
@@ -132,9 +145,9 @@ export function ItunesContainer({
             onSearch={(searchText) => debouncedHandleOnChange(searchText)}
           />
         </CustomCard>
-        {renderTrackList()}
         {renderErrorState()}
       </Container>
+      {renderTrackList()}
     </>
   );
 }
