@@ -7,6 +7,9 @@
 import React from 'react';
 import { fireEvent } from '@testing-library/dom';
 import { timeout, renderProvider } from '@utils/testUtils';
+import { ItunesContainerTest as ItunesContainer, mapDispatchToProps } from '../index';
+import { itunesContainerTypes } from '../reducer';
+import { translate } from '@app/components/IntlGlobalProvider';
 
 describe('<ItunesContainer /> tests', () => {
   let submitSpy;
