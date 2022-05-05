@@ -5,12 +5,12 @@ import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { itunesContainerCreators } from './reducer';
-import saga from './saga';
 import { injectIntl } from 'react-intl';
 import { selectTrackName, selectTracksData, selectTracksError } from './selectors';
 import { injectSaga } from 'redux-injectors';
 import { compose } from 'redux';
 import isEmpty from 'lodash/isEmpty';
+import itunesContainerSaga from './saga';
 
 export function ItunesContainer({ dispatchItuneTracks, dispatchClearItuneTracks, tracksData, trackName }) {
   const [loading, setLoading] = useState(false);
@@ -37,10 +37,6 @@ export function ItunesContainer({ dispatchItuneTracks, dispatchClearItuneTracks,
       dispatchClearItuneTracks();
     }
   };
-
-  useEffect(() => {
-    handleOnChange();
-  }, []);
 
   const debouncedHandleOnChange = debounce(handleOnChange, 200);
 
@@ -99,6 +95,11 @@ export function mapDispatchToProps(dispatch) {
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(injectIntl, withConnect, memo, injectSaga({ key: 'itunesContainer', saga }))(ItunesContainer);
+export default compose(
+  injectIntl,
+  withConnect,
+  memo,
+  injectSaga({ key: 'itunesContainer', saga: itunesContainerSaga })
+)(ItunesContainer);
 
 export const ItunesContainerTest = compose(injectIntl)(ItunesContainer);
