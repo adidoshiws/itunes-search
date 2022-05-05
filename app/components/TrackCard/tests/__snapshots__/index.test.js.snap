@@ -4,7 +4,7 @@ exports[`<TrackCard /> should render and match the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="ant-col ant-col-6 TrackCard__CustomCard-sc-10bk196-0 ilIdfW"
+      class="ant-col ant-col-6 TrackCard__CustomCard-sc-10bk196-0 gyfuwn"
       data-testid="track-card"
     >
       <a
@@ -12,26 +12,26 @@ exports[`<TrackCard /> should render and match the snapshot 1`] = `
         style="color: black;"
       >
         <p
-          class="T__StyledText-gjlic1-0 dmkfex"
+          class="T__StyledText-gjlic1-0 hJImPR"
           data-testid="img-unavailable"
         >
           Track img is unavailable
         </p>
         <p
-          class="T__StyledText-gjlic1-0 dmkfex"
+          class="T__StyledText-gjlic1-0 hJImPR"
           data-testid="name-unavailable"
         >
           Track name is unavailable
         </p>
         <p
-          class="T__StyledText-gjlic1-0 dmkfex"
+          class="T__StyledText-gjlic1-0 hJImPR"
           data-testid="collectionName-unavailable"
         >
           Track collection name unavaiable
         </p>
       </a>
       <p
-        class="T__StyledText-gjlic1-0 dmkfex"
+        class="T__StyledText-gjlic1-0 hJImPR"
         data-testid="preview-unavailable"
       >
         Track preview is unavaiable

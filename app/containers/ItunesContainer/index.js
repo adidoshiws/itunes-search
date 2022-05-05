@@ -22,7 +22,7 @@ const { Search } = Input;
 
 const CustomCard = styled(Card)`
   && {
-    margin: 20px 0;
+    margin: 1.2rem 0;
     max-width: ${(props) => props.maxwidth};
   }
 `;
@@ -39,7 +39,7 @@ const Container = styled.div`
 
 const Grid = styled(Row)`
   && {
-    margin: 20px auto;
+    margin: 1.2rem auto;
     display: flex;
     flex-direction: inherit;
     flex-wrap: wrap;
@@ -104,20 +104,18 @@ export function ItunesContainer({
               <T id="matching_tracks" values={{ resultCount }} />
             </div>
           </If>
-          <Grid>
-            <For
-              of={results}
-              ParentComponent={Grid}
-              renderItem={(item) => (
-                <TrackCard
-                  key={item.trackId}
-                  {...item}
-                  dispatchCurrentTrack={dispatchCurrentTrack}
-                  currentTrack={currentTrack}
-                />
-              )}
-            />
-          </Grid>
+          <For
+            of={results}
+            ParentComponent={Grid}
+            renderItem={(item) => (
+              <TrackCard
+                key={item.trackId}
+                {...item}
+                dispatchCurrentTrack={dispatchCurrentTrack}
+                currentTrack={currentTrack}
+              />
+            )}
+          />
         </Skeleton>
       </If>
     );

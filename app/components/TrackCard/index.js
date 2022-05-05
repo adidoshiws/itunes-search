@@ -12,14 +12,15 @@ import T from '@components/T';
 import If from '@components/If';
 import { isEmpty } from 'lodash';
 import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 const CustomCard = styled(Col)`
   && {
-    margin: 20px 0;
+    margin: 1.2rem 0;
     ${(props) => props.span};
     cursor: pointer;
     border: 1px solid gray;
-    padding: 10px;
+    padding: 0.625rem;
   }
 `;
 
@@ -90,7 +91,7 @@ export function TrackCard({
       >
         <audio ref={audioRef} data-testid="preview" id="track_preview" src={previewUrl}></audio>
         <Button type="primary" onClick={() => playHandler(trackId)}>
-          {isPlaying ? 'Pause' : 'Preview'}
+          {isPlaying ? <FormattedMessage id="pause_btn_text" /> : <FormattedMessage id="play_btn_text" />}
         </Button>
       </If>
     </CustomCard>

@@ -26,5 +26,7 @@
   "track_collection_name_unavailable": "Track collection name unavaiable",
   "track_preview": "Track preview: {preview}",
   "track_preview_unavailable": "Track preview is unavaiable",
-  "track_img_unavailable": "Track img is unavailable"
+  "track_img_unavailable": "Track img is unavailable",
+  "pause_btn_text": "Pause",
+  "play_btn_text": "Play"
 }
