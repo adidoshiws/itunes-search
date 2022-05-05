@@ -10,5 +10,9 @@ export default {
   tracks: {
     route: '/tracks',
     exact: true
+  },
+  trackDetails: {
+    route: '/tracks/:trackId',
+    exact: true
   }
 };

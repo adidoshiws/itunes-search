@@ -12,7 +12,9 @@ import { IntlGlobalProvider } from '@components/IntlGlobalProvider';
 export const renderWithIntl = (children) =>
   render(
     <IntlProvider locale={DEFAULT_LOCALE} messages={translationMessages[DEFAULT_LOCALE]}>
-      <IntlGlobalProvider>{children}</IntlGlobalProvider>
+      <IntlGlobalProvider>
+        <BrowserRouter>{children}</BrowserRouter>
+      </IntlGlobalProvider>
     </IntlProvider>
   );
 

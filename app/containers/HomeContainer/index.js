@@ -135,6 +135,7 @@ export function HomeContainer({
 
   const handleStoriesClick = () => {
     history.push('/stories');
+    // window.location.reload();
   };
 
   return (
