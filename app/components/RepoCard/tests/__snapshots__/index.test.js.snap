@@ -11,19 +11,19 @@ exports[`<RepoCard /> should render and match the snapshot 1`] = `
         class="ant-card-body"
       >
         <p
-          class="T__StyledText-gjlic1-0 kYcyRq"
+          class="T__StyledText-gjlic1-0 dmkfex"
           data-testid="name-unavailable"
         >
           Repository name is unavailable
         </p>
         <p
-          class="T__StyledText-gjlic1-0 kYcyRq"
+          class="T__StyledText-gjlic1-0 dmkfex"
           data-testid="fullName-unavailable"
         >
           Repository full name unavaiable
         </p>
         <p
-          class="T__StyledText-gjlic1-0 kYcyRq"
+          class="T__StyledText-gjlic1-0 dmkfex"
           data-testid="stargazers-unavaiable"
         >
           Repository stars are unavaiable

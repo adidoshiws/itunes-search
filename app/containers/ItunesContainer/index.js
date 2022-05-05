@@ -12,7 +12,7 @@ import If from '@components/If';
 import For from '@app/components/For';
 import { Input, Skeleton, Card, Row } from 'antd';
 import { injectIntl } from 'react-intl';
-import { selectTrackName, selectTracksData, selectTracksError } from './selectors';
+import { selectTrackName, selectTracksData, selectTracksError, selectCurrentTrack } from './selectors';
 import { injectSaga } from 'redux-injectors';
 import { compose } from 'redux';
 import isEmpty from 'lodash/isEmpty';
@@ -45,12 +45,15 @@ const Grid = styled(Row)`
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 95%;
+    gap: 10px;
   }
 `;
 
 export function ItunesContainer({
   dispatchItuneTracks,
   dispatchClearItuneTracks,
+  dispatchCurrentTrack,
+  currentTrack,
   tracksData,
   tracksError,
   trackName,
@@ -105,7 +108,14 @@ export function ItunesContainer({
             <For
               of={results}
               ParentComponent={Grid}
-              renderItem={(item) => <TrackCard key={item.trackId} {...item} />}
+              renderItem={(item) => (
+                <TrackCard
+                  key={item.trackId}
+                  {...item}
+                  dispatchCurrentTrack={dispatchCurrentTrack}
+                  currentTrack={currentTrack}
+                />
+              )}
             />
           </Grid>
         </Skeleton>
@@ -155,6 +165,8 @@ export function ItunesContainer({
 ItunesContainer.propTypes = {
   dispatchItuneTracks: PropTypes.func,
   dispatchClearItuneTracks: PropTypes.func,
+  dispatchCurrentTrack: PropTypes.func,
+  currentTrack: PropTypes.number,
   intl: PropTypes.object,
   tracksData: PropTypes.shape({
     resultCount: PropTypes.number,
@@ -176,14 +188,16 @@ ItunesContainer.defaultProps = {
 const mapStateToProps = createStructuredSelector({
   tracksData: selectTracksData(),
   tracksError: selectTracksError(),
-  trackName: selectTrackName()
+  trackName: selectTrackName(),
+  currentTrack: selectCurrentTrack()
 });
 
 export function mapDispatchToProps(dispatch) {
-  const { requestGetItuneTracks, clearItuneTracks } = itunesContainerCreators;
+  const { requestGetItuneTracks, clearItuneTracks, currentTrack } = itunesContainerCreators;
   return {
     dispatchItuneTracks: (trackName) => dispatch(requestGetItuneTracks(trackName)),
-    dispatchClearItuneTracks: () => dispatch(clearItuneTracks())
+    dispatchClearItuneTracks: () => dispatch(clearItuneTracks()),
+    dispatchCurrentTrack: (trackId) => dispatch(currentTrack(trackId))
   };
 }
 

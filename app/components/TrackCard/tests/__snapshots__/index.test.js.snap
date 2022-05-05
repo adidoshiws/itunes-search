@@ -4,31 +4,38 @@ exports[`<TrackCard /> should render and match the snapshot 1`] = `
 <body>
   <div>
     <div
-      class="ant-card ant-card-bordered TrackCard__CustomCard-sc-10bk196-0 bcUGih"
+      class="ant-col ant-col-6 TrackCard__CustomCard-sc-10bk196-0 ilIdfW"
       data-testid="track-card"
     >
-      <div
-        class="ant-card-body"
+      <a
+        href="/tracks/undefined"
+        style="color: black;"
       >
         <p
-          class="T__StyledText-gjlic1-0 kYcyRq"
+          class="T__StyledText-gjlic1-0 dmkfex"
+          data-testid="img-unavailable"
+        >
+          Track img is unavailable
+        </p>
+        <p
+          class="T__StyledText-gjlic1-0 dmkfex"
           data-testid="name-unavailable"
         >
           Track name is unavailable
         </p>
         <p
-          class="T__StyledText-gjlic1-0 kYcyRq"
+          class="T__StyledText-gjlic1-0 dmkfex"
           data-testid="collectionName-unavailable"
         >
           Track collection name unavaiable
         </p>
-        <p
-          class="T__StyledText-gjlic1-0 kYcyRq"
-          data-testid="preview-unavailable"
-        >
-          Track preview is unavaiable
-        </p>
-      </div>
+      </a>
+      <p
+        class="T__StyledText-gjlic1-0 dmkfex"
+        data-testid="preview-unavailable"
+      >
+        Track preview is unavaiable
+      </p>
     </div>
   </div>
 </body>
