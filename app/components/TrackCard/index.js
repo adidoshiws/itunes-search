@@ -40,7 +40,6 @@ export function TrackCard({
 }) {
   const audioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  // const [currentSong, setCurrentSong] = useState(null);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -52,8 +51,6 @@ export function TrackCard({
   }, [currentTrack]);
 
   const playHandler = () => {
-    // eslint-disable-next-line no-console
-    console.log(audioRef.current.paused);
     if (audioRef.current.paused) {
       dispatchCurrentTrack(trackId);
       audioRef.current.play();
@@ -63,7 +60,6 @@ export function TrackCard({
       audioRef.current.pause();
       setIsPlaying(false);
     }
-    setIsPlaying(!isPlaying);
   };
 
   return (
