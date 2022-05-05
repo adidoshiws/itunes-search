@@ -5,18 +5,11 @@ import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { itunesContainerCreators } from './reducer';
-import styled from 'styled-components';
-import saga from './saga';
-import T from '@components/T';
-import If from '@components/If';
-import For from '@app/components/For';
-import { Input, Skeleton, Card, Row } from 'antd';
 import { injectIntl } from 'react-intl';
 import { selectTrackName, selectTracksData, selectTracksError, selectCurrentTrack } from './selectors';
 import { injectSaga } from 'redux-injectors';
 import { compose } from 'redux';
 import isEmpty from 'lodash/isEmpty';
-import TrackCard from '@app/components/TrackCard';
 
 const { Search } = Input;
 
@@ -203,6 +196,11 @@ export function mapDispatchToProps(dispatch) {
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(injectIntl, withConnect, memo, injectSaga({ key: 'itunesContainer', saga }))(ItunesContainer);
+export default compose(
+  injectIntl,
+  withConnect,
+  memo,
+  injectSaga({ key: 'itunesContainer', saga: itunesContainerSaga })
+)(ItunesContainer);
 
 export const ItunesContainerTest = compose(injectIntl)(ItunesContainer);
