@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ItunesContainer /> tests should render and match the snapshot 1`] = `
+<body>
+  <div>
+    <input
+      data-testid="search-bar"
+      placeholder="search tracks"
+      type="text"
+      value=""
+    />
+  </div>
+</body>
+`;

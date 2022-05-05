@@ -135,7 +135,6 @@ export function HomeContainer({
 
   const handleStoriesClick = () => {
     history.push('/stories');
-    window.location.reload();
   };
 
   return (
@@ -187,9 +186,9 @@ const mapStateToProps = createStructuredSelector({
   reposError: selectReposError(),
   repoName: selectRepoName()
 });
-
 export function mapDispatchToProps(dispatch) {
   const { requestGetGithubRepos, clearGithubRepos } = homeContainerCreators;
+
   return {
     dispatchGithubRepos: (repoName) => dispatch(requestGetGithubRepos(repoName)),
     dispatchClearGithubRepos: () => dispatch(clearGithubRepos())
