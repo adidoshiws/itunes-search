@@ -16,7 +16,7 @@
   "repo_stars_unavailable": "Repository stars are unavaiable",
   "wednesday_solutions": "Wednesday Solutions",
   "track_list": "Track List",
-  "track_search": "Track Search",
+  "track_search": "Search by Track",
   "track_search_default": "Search for a track by entering it's name in the search box",
   "get_track_details": "Get details of tracks",
   "matching_tracks": "Total number of matching tracks: {resultCount}",
