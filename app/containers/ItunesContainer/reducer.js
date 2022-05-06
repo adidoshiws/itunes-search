@@ -6,9 +6,18 @@ export const { Types: itunesContainerTypes, Creators: itunesContainerCreators } 
   requestGetItuneTracks: ['trackName'],
   successGetItuneTracks: ['data'],
   failureGetItuneTracks: ['error'],
-  clearItuneTracks: {}
+  clearItuneTracks: {},
+  getTrackDetails: ['trackId'],
+  successGetItuneTrackDetails: ['data'],
+  failureGetItuneTrackDetails: ['error']
 });
-export const initialState = { trackName: null, tracksData: {}, tracksError: null };
+export const initialState = {
+  trackName: null,
+  tracksData: {},
+  tracksError: null,
+  getTrackDetails: {},
+  trackDetailsError: null
+};
 
 export const itunesContainerReducer = (state = initialState, action) =>
   produce(state, (draft) => {
@@ -26,6 +35,12 @@ export const itunesContainerReducer = (state = initialState, action) =>
         break;
       case itunesContainerTypes.FAILURE_GET_ITUNE_TRACKS:
         draft.tracksError = get(action.error, 'message', 'something_went_wrong');
+        break;
+      case itunesContainerTypes.SUCCESS_GET_ITUNE_TRACK_DETAILS:
+        draft.getTrackDetails = action.data;
+        break;
+      case itunesContainerTypes.FAILURE_GET_ITUNE_TRACK_DETAILS:
+        draft.trackDetailsError = action.error;
         break;
     }
   });

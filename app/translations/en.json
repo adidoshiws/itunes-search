@@ -25,5 +25,13 @@
   "track_collection_name": "Track collection name: {collectionName}",
   "track_collection_name_unavailable": "Track collection name unavaiable",
   "track_preview": "Track preview: {preview}",
-  "track_preview_unavailable": "Track preview is unavaiable"
+  "track_preview_unavailable": "Track preview is unavaiable",
+  "track_collection_price": "Collection Price: {collectionPrice}",
+  "track_collection_price_unavailable": "Price Unavailable",
+  "track_country": "Country: {country}",
+  "track_country_unavailable": "Country Unavailable",
+  "track_kind": "Kind: {kind}",
+  "track_kind_unavailable": "Kind Unavailable",
+  "details_pause_btn": "Pause",
+  "details_play_btn": "Play Track"
 }
