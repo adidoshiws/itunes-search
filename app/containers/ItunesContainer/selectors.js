@@ -18,3 +18,6 @@ export const selectTrackDetailsData = () =>
 
 export const selectTrackDetailsError = () =>
   createSelector(selectItunesContainerDomain, (substate) => get(substate, 'trackDetailsError'));
+
+export const selectCurrentTrack = () =>
+  createSelector(selectItunesContainerDomain, (substate) => get(substate, 'currentTrack'));

@@ -5,24 +5,24 @@ import debounce from 'lodash/debounce';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { itunesContainerCreators } from './reducer';
-import styled from 'styled-components';
-import saga from './saga';
-import T from '@components/T';
-import If from '@components/If';
-import For from '@app/components/For';
-import { Input, Skeleton, Card, Row } from 'antd';
 import { injectIntl } from 'react-intl';
-import { selectTrackName, selectTracksData, selectTracksError } from './selectors';
+import { selectTrackName, selectTracksData, selectTracksError, selectCurrentTrack } from './selectors';
 import { injectSaga } from 'redux-injectors';
 import { compose } from 'redux';
 import isEmpty from 'lodash/isEmpty';
+import { Card, Skeleton, Input, Row } from 'antd';
+import styled from 'styled-components';
+import T from '@components/T';
+import If from '@components/If';
+import For from '@app/components/For';
 import TrackCard from '@app/components/TrackCard';
+import itunesContainerSaga from './saga';
 
 const { Search } = Input;
 
 const CustomCard = styled(Card)`
   && {
-    margin: 20px 0;
+    margin: 1.2rem 0;
     max-width: ${(props) => props.maxwidth};
   }
 `;
@@ -39,18 +39,21 @@ const Container = styled.div`
 
 const Grid = styled(Row)`
   && {
-    margin: 20px auto;
+    margin: 1.2rem auto;
     display: flex;
     flex-direction: inherit;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 95%;
+    gap: 10px;
   }
 `;
 
 export function ItunesContainer({
   dispatchItuneTracks,
   dispatchClearItuneTracks,
+  dispatchCurrentTrack,
+  currentTrack,
   tracksData,
   tracksError,
   trackName,
@@ -101,13 +104,18 @@ export function ItunesContainer({
               <T id="matching_tracks" values={{ resultCount }} />
             </div>
           </If>
-          <Grid>
-            <For
-              of={results}
-              ParentComponent={Grid}
-              renderItem={(item) => <TrackCard key={item.trackId} {...item} />}
-            />
-          </Grid>
+          <For
+            of={results}
+            ParentComponent={Grid}
+            renderItem={(item) => (
+              <TrackCard
+                key={item.trackId}
+                {...item}
+                dispatchCurrentTrack={dispatchCurrentTrack}
+                currentTrack={currentTrack}
+              />
+            )}
+          />
         </Skeleton>
       </If>
     );
@@ -155,6 +163,8 @@ export function ItunesContainer({
 ItunesContainer.propTypes = {
   dispatchItuneTracks: PropTypes.func,
   dispatchClearItuneTracks: PropTypes.func,
+  dispatchCurrentTrack: PropTypes.func,
+  currentTrack: PropTypes.number,
   intl: PropTypes.object,
   tracksData: PropTypes.shape({
     resultCount: PropTypes.number,
@@ -176,19 +186,26 @@ ItunesContainer.defaultProps = {
 const mapStateToProps = createStructuredSelector({
   tracksData: selectTracksData(),
   tracksError: selectTracksError(),
-  trackName: selectTrackName()
+  trackName: selectTrackName(),
+  currentTrack: selectCurrentTrack()
 });
 
 export function mapDispatchToProps(dispatch) {
-  const { requestGetItuneTracks, clearItuneTracks } = itunesContainerCreators;
+  const { requestGetItuneTracks, clearItuneTracks, currentTrack } = itunesContainerCreators;
   return {
     dispatchItuneTracks: (trackName) => dispatch(requestGetItuneTracks(trackName)),
-    dispatchClearItuneTracks: () => dispatch(clearItuneTracks())
+    dispatchClearItuneTracks: () => dispatch(clearItuneTracks()),
+    dispatchCurrentTrack: (trackId) => dispatch(currentTrack(trackId))
   };
 }
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 
-export default compose(injectIntl, withConnect, memo, injectSaga({ key: 'itunesContainer', saga }))(ItunesContainer);
+export default compose(
+  injectIntl,
+  withConnect,
+  memo,
+  injectSaga({ key: 'itunesContainer', saga: itunesContainerSaga })
+)(ItunesContainer);
 
 export const ItunesContainerTest = compose(injectIntl)(ItunesContainer);

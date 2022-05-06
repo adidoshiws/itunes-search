@@ -24,8 +24,14 @@ describe('<TrackCard />', () => {
     const trackName = 'Upside Down';
     const collectionName = 'Jack Johnson and Friends';
     const previewUrl = 'https://example.m4a';
+    const artworkUrl100 = 'https://example.jpg';
     const { getByTestId } = renderWithIntl(
-      <TrackCard trackName={trackName} collectionName={collectionName} previewUrl={previewUrl} />
+      <TrackCard
+        trackName={trackName}
+        collectionName={collectionName}
+        previewUrl={previewUrl}
+        artworkUrl100={artworkUrl100}
+      />
     );
     expect(getByTestId('trackName')).toHaveTextContent(trackName);
     expect(getByTestId('collectionName')).toHaveTextContent(collectionName);
@@ -35,9 +41,11 @@ describe('<TrackCard />', () => {
     const trackUnavailable = translate('track_name_unavailable');
     const collectionNameUnavailable = translate('track_collection_name_unavailable');
     const previewUnavailable = translate('track_preview_unavailable');
+    const trackImgUnavailable = translate('track_img_unavailable');
     const { getByTestId } = renderWithIntl(<TrackCard />);
     expect(getByTestId('name-unavailable')).toHaveTextContent(trackUnavailable);
     expect(getByTestId('collectionName-unavailable')).toHaveTextContent(collectionNameUnavailable);
     expect(getByTestId('preview-unavailable')).toHaveTextContent(previewUnavailable);
+    expect(getByTestId('img-unavailable')).toHaveTextContent(trackImgUnavailable);
   });
 });

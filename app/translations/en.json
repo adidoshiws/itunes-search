@@ -34,4 +34,7 @@
   "track_kind_unavailable": "Kind Unavailable",
   "details_pause_btn": "Pause",
   "details_play_btn": "Play Track"
+  "track_img_unavailable": "Track img is unavailable",
+  "pause_btn_text": "Pause",
+  "play_btn_text": "Play"
 }
