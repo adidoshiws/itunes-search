@@ -3,16 +3,6 @@
 exports[`<TrackCard /> should render and match the snapshot 1`] = `
 <body>
   <div>
-    <a
-      href="/tracks/undefined"
-      style="color: black;"
-    >
-      <div
-        class="ant-col ant-col-6 TrackCard__CustomCard-sc-10bk196-0 bnHRWj"
-        data-testid="track-card"
-      >
-        <p
-          class="T__StyledText-gjlic1-0 dmkfex"
     <div
       class="ant-col ant-col-6 TrackCard__CustomCard-sc-10bk196-0 gyfuwn"
       data-testid="track-card"
@@ -34,20 +24,11 @@ exports[`<TrackCard /> should render and match the snapshot 1`] = `
           Track name is unavailable
         </p>
         <p
-          class="T__StyledText-gjlic1-0 dmkfex"
           class="T__StyledText-gjlic1-0 hJImPR"
           data-testid="collectionName-unavailable"
         >
           Track collection name unavaiable
         </p>
-        <p
-          class="T__StyledText-gjlic1-0 dmkfex"
-          data-testid="preview-unavailable"
-        >
-          Track preview is unavaiable
-        </p>
-      </div>
-    </a>
       </a>
       <p
         class="T__StyledText-gjlic1-0 hJImPR"
