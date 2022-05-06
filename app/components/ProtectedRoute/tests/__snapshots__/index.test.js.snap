@@ -11,6 +11,7 @@ exports[`<ProtectedRoute /> should render and match the snapshot 1`] = `
       >
         <p
           class="T__StyledText-gjlic1-0 dmkfex HomeContainer__StyledT-l0s8pp-3 fYCmLU"
+          class="T__StyledText-gjlic1-0 hJImPR HomeContainer__StyledT-l0s8pp-3 fYCmLU"
           data-testid="redirect"
         >
           Go to Storybook
@@ -38,6 +39,7 @@ exports[`<ProtectedRoute /> should render and match the snapshot 1`] = `
         >
           <p
             class="T__StyledText-gjlic1-0 cqNnnp"
+            class="T__StyledText-gjlic1-0 ibEOXx"
             data-testid="t"
           >
             Get details of repositories
@@ -108,6 +110,7 @@ exports[`<ProtectedRoute /> should render and match the snapshot 1`] = `
         >
           <p
             class="T__StyledText-gjlic1-0 dmkfex"
+            class="T__StyledText-gjlic1-0 hJImPR"
             data-testid="default-message"
           >
             Search for a repository by entering it's name in the search box

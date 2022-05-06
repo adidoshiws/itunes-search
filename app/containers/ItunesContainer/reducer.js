@@ -18,6 +18,9 @@ export const initialState = {
   getTrackDetails: {},
   trackDetailsError: null
 };
+  currentTrack: ['trackId']
+});
+export const initialState = { trackName: null, tracksData: {}, tracksError: null, currentTrack: null };
 
 export const itunesContainerReducer = (state = initialState, action) =>
   produce(state, (draft) => {
@@ -41,6 +44,8 @@ export const itunesContainerReducer = (state = initialState, action) =>
         break;
       case itunesContainerTypes.FAILURE_GET_ITUNE_TRACK_DETAILS:
         draft.trackDetailsError = action.error;
+      case itunesContainerTypes.CURRENT_TRACK:
+        draft.currentTrack = action.trackId;
         break;
     }
   });
