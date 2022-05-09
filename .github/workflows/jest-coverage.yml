@@ -29,3 +29,7 @@ jobs:
           threshold: ${{steps.threshold.outputs.prop}}
           package-manager: yarn
           custom-title: Jest Coverage Report
+
+      - name: Jest Coverage Annotations
+        with:
+          annotations: failed-tests
