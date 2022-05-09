@@ -19,7 +19,7 @@ exports[`<ItunesContainer /> tests should render and match the snapshot 1`] = `
             <div
               class="ant-card-head-title"
             >
-              Track Search
+              Search by Track
             </div>
           </div>
         </div>

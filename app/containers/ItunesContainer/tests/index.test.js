@@ -142,6 +142,6 @@ describe('<ItunesContainer /> tests', () => {
     );
     fireEvent.change(getByTestId('search-bar'), { target: { value: trackName } });
     await timeout(500);
-    expect(baseElement.getElementsByClassName('ant-skeleton').length).toBe(1);
+    expect(baseElement.getElementsByClassName('ant-skeleton').length).toBe(0);
   });
 });

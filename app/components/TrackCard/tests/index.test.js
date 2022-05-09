@@ -10,6 +10,8 @@ import TrackCard from '../index';
 import { translate } from '@app/components/IntlGlobalProvider/index';
 
 describe('<TrackCard />', () => {
+  jest.spyOn(window.HTMLMediaElement.prototype, 'pause').mockImplementation(() => {});
+  jest.spyOn(window.HTMLMediaElement.prototype, 'play').mockImplementation(() => {});
   it('should render and match the snapshot', () => {
     const { baseElement } = renderWithIntl(<TrackCard />);
     expect(baseElement).toMatchSnapshot();
