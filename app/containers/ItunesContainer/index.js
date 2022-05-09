@@ -1,4 +1,4 @@
-import React, { useEffect, useState, memo } from 'react';
+import React, { useEffect, memo } from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import debounce from 'lodash/debounce';
@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { itunesContainerCreators } from './reducer';
 import { injectIntl } from 'react-intl';
-import { selectTrackName, selectTracksData, selectTracksError, selectCurrentTrack } from './selectors';
+import { selectTrackName, selectTracksData, selectTracksError, selectCurrentTrack, selectLoading } from './selectors';
 import { injectSaga } from 'redux-injectors';
 import { compose } from 'redux';
 import isEmpty from 'lodash/isEmpty';
@@ -54,6 +54,7 @@ export function ItunesContainer({
   dispatchClearItuneTracks,
   dispatchCurrentTrack,
   currentTrack,
+  loading,
   tracksData,
   tracksError,
   trackName,
@@ -61,26 +62,19 @@ export function ItunesContainer({
   maxwidth,
   padding
 }) {
-  const [loading, setLoading] = useState(false);
-
   useEffect(() => {
-    const loaded = get(tracksData, 'results', null) || tracksError;
-    if (loaded) {
-      setLoading(false);
-    }
+    get(tracksData, 'results', null) || tracksError;
   }, [tracksData]);
 
   useEffect(() => {
     if (trackName && !tracksData?.results?.length) {
       dispatchItuneTracks(trackName);
-      setLoading(true);
     }
   }, []);
 
   const handleOnChange = (tName) => {
     if (!isEmpty(tName)) {
       dispatchItuneTracks(tName);
-      setLoading(true);
     } else {
       dispatchClearItuneTracks();
     }
@@ -166,6 +160,7 @@ ItunesContainer.propTypes = {
   dispatchCurrentTrack: PropTypes.func,
   currentTrack: PropTypes.number,
   intl: PropTypes.object,
+  loading: PropTypes.bool,
   tracksData: PropTypes.shape({
     resultCount: PropTypes.number,
     results: PropTypes.array
@@ -184,6 +179,7 @@ ItunesContainer.defaultProps = {
 };
 
 const mapStateToProps = createStructuredSelector({
+  loading: selectLoading(),
   tracksData: selectTracksData(),
   tracksError: selectTracksError(),
   trackName: selectTrackName(),

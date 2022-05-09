@@ -13,7 +13,7 @@ describe('ItunesContainer reducer tests', () => {
 
   it('should return the initial state when an action of type FETCH_TRACK is dispatched', () => {
     const trackName = 'West Ham Way';
-    const expectedResult = { ...state, trackName };
+    const expectedResult = { ...state, trackName, loading: true };
     expect(
       itunesContainerReducer(state, {
         type: itunesContainerTypes.REQUEST_GET_ITUNE_TRACKS,
@@ -24,7 +24,7 @@ describe('ItunesContainer reducer tests', () => {
 
   it('should ensure that the track data is present and trackLoading = false when FETCH_TRACK_SUCCESS is dispatched', () => {
     const data = { name: 'West Ham Way' };
-    const expectedResult = { ...state, tracksData: data };
+    const expectedResult = { ...state, tracksData: data, loading: false };
     expect(
       itunesContainerReducer(state, {
         type: itunesContainerTypes.SUCCESS_GET_ITUNE_TRACKS,
@@ -35,7 +35,7 @@ describe('ItunesContainer reducer tests', () => {
 
   it('should ensure that the trackErrorMessage has some data and trackLoading = false when FETCH_TRACK_FAILURE is dispatched', () => {
     const error = 'something_went_wrong';
-    const expectedResult = { ...state, tracksError: error };
+    const expectedResult = { ...state, tracksError: error, loading: false };
     expect(
       itunesContainerReducer(state, {
         type: itunesContainerTypes.FAILURE_GET_ITUNE_TRACKS,
