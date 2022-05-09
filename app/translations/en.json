@@ -22,6 +22,7 @@
   "matching_tracks": "Total number of matching tracks: {resultCount}",
   "track_name": "Track Name: {trackName}",
   "track_name_unavailable": "Track name is unavailable",
+  "track_not_found": "Details not available",
   "track_collection_name": "Track collection name: {collectionName}",
   "track_collection_name_unavailable": "Track collection name unavaiable",
   "track_preview": "Track preview: {preview}",
@@ -36,5 +37,6 @@
   "details_play_btn": "Play Track",
   "track_img_unavailable": "Track img is unavailable",
   "pause_btn_text": "Pause",
-  "play_btn_text": "Play"
+  "play_btn_text": "Play",
+  "track_details": "Track Details Unavailable"
 }
