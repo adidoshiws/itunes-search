@@ -38,5 +38,6 @@
   "track_img_unavailable": "Track img is unavailable",
   "pause_btn_text": "Pause",
   "play_btn_text": "Play",
-  "track_details": "Track Details Unavailable"
+  "track_details": "Track Details Unavailable",
+  "loading": "Loading"
 }

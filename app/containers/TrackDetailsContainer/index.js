@@ -5,7 +5,7 @@ import T from '@components/T';
 import If from '@components/If';
 import styled from 'styled-components';
 import { Card, Button, Image } from 'antd';
-import { selectTrackDetailsData, selectTrackDetailsError, selectTrackId } from './selectors';
+import { selectLoading, selectTrackDetailsData, selectTrackDetailsError, selectTrackId } from './selectors';
 import { trackDetailsCreators } from './reducer';
 import { connect } from 'react-redux';
 import trackDetailsSaga from './saga';
@@ -50,7 +50,7 @@ const PlayBtn = styled(Button)`
   type: ${(props) => props.type};
 `;
 
-export function TrackDetailsContainer({ dispatchTrackDetails, trackDetailsData, trackDetailsError, loading }) {
+export function TrackDetailsContainer({ dispatchTrackDetails, trackDetailsData, loading }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const params = useParams();
   const audioRef = useRef(null);
@@ -154,7 +154,8 @@ TrackDetailsContainer.propTypes = {
 const mapStateToProps = createStructuredSelector({
   trackDetailsData: selectTrackDetailsData(),
   trackDetailsError: selectTrackDetailsError(),
-  trackId: selectTrackId()
+  trackId: selectTrackId(),
+  loading: selectLoading()
 });
 export function mapDispatchToProps(dispatch) {
   const { requestGetTrackDetails } = trackDetailsCreators;
