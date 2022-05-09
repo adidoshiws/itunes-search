@@ -63,10 +63,6 @@ export function ItunesContainer({
   padding
 }) {
   useEffect(() => {
-    get(tracksData, 'results', null) || tracksError;
-  }, [tracksData]);
-
-  useEffect(() => {
     if (trackName && !tracksData?.results?.length) {
       dispatchItuneTracks(trackName);
     }
