@@ -20,7 +20,7 @@ Object {
               class="T__StyledText-gjlic1-0 hJImPR"
               data-testid="t"
             >
-              track_not_found
+              Details not available
             </p>
           </div>
         </div>
@@ -43,7 +43,7 @@ Object {
             class="T__StyledText-gjlic1-0 hJImPR"
             data-testid="t"
           >
-            track_not_found
+            Details not available
           </p>
         </div>
       </div>
