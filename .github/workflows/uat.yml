@@ -10,6 +10,7 @@ jobs:
       matrix:
         node-version: [16.x]
     env:
+      SOURCE_DIR: './build/'
       AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -43,12 +44,3 @@ jobs:
         env:
           SOURCE_DIR: './build/'
           DEST_DIR: ${{ steps.vars.outputs.branch }}
-      - name: List UAT branches in fallback page
-        run: yarn ls-uat-branches
-      - name: Deploy S3 fallback page
-        uses: jakejarvis/s3-sync-action@v0.5.0
-        with:
-          args: --acl public-read --follow-symlinks --exclude 'tests/*'
-        env:
-          SOURCE_DIR: './uat/'
-          DEST_DIR: ''

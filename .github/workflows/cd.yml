@@ -1,4 +1,4 @@
-name: React Template CD
+name: Itunes Search CD
 on:
   push:
     branches: [master]
@@ -21,10 +21,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Install Node.js 14.x
+      - name: Install Node.js 16.x
         uses: actions/setup-node@v2
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Install Dependencies
         run: yarn
@@ -33,7 +33,7 @@ jobs:
         run: yarn build
 
       - name: Deploy
-        run: aws s3 sync ${{ env.DIST }} s3://${{ env.AWS_S3_BUCKET }}
+        run: aws s3 sync ./build s3://${{ env.AWS_S3_BUCKET }}
 
       - name: Copy files to the production website with the AWS CLI
         run: |
