@@ -12,13 +12,13 @@ export const getApiClient = (type = 'github') => apiClients[type];
 export const generateApiClient = (type = 'github') => {
   switch (type) {
     case 'github':
-      apiClients[type] = createApiClientWithTransForm(process.env.GITHUB_URL);
+      apiClients[type] = createApiClientWithTransForm('https://api.github.com/');
       return apiClients[type];
     case 'itunes':
-      apiClients[type] = createApiClientWithTransForm(process.env.ITUNES_URL);
+      apiClients[type] = createApiClientWithTransForm('https://itunes.apple.com/');
       return apiClients[type];
     default:
-      apiClients.default = createApiClientWithTransForm(process.env.GITHUB_URL);
+      apiClients.default = createApiClientWithTransForm('https://api.github.com/');
       return apiClients.default;
   }
 };
